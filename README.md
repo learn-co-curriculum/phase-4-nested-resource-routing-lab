@@ -70,12 +70,7 @@ Example Response:
   "name": "Non-stick pan",
   "description": "Sticks a bit",
   "price": 10,
-  "user_id": 1,
-  "user": {
-    "id": 1,
-    "username": "Dwayne",
-    "city": "Los Angeles"
-  }
+  "user_id": 1
 }
 ```
 

@@ -12,7 +12,7 @@ RSpec.describe "Items", type: :request do
   let!(:item) { user.items.first }
 
   describe "GET /users/:user_id/items" do
-    it 'returns an array of all items with user info' do
+    it 'returns an array of all items belonging to a user' do
       get "/users/#{user.id}/items"
 
       expect(response.body).to include_json([
@@ -22,6 +22,14 @@ RSpec.describe "Items", type: :request do
           description: "Sticks a bit",
           price: 10,
           user_id: user.id
+        }
+      ])
+
+      expect(response.body).not_to include_json([
+        {
+          name: "Ceramic plant pots",
+          description: "Plants not included",
+          price: 31
         }
       ])
     end
@@ -72,8 +80,14 @@ RSpec.describe "Items", type: :request do
       })
     end
 
-    it 'returns a 404 response if the item is not found' do
-      get "/users/#{user.id}/items/bad_id"
+    it 'returns a 201 created status if the item was created' do
+      post "/users/#{user.id}/items", params: item_params
+
+      expect(response).to have_http_status(:created)
+    end
+
+    it 'returns a 404 response if the user is not found' do
+      get "/users/bad_id/items"
 
       expect(response).to have_http_status(:not_found)
     end
