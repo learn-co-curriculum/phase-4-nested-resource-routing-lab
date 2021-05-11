@@ -29,15 +29,15 @@ can also run `learn test` to run the tests.
 Handle the following requests and return the appropriate JSON data in the
 response.
 
-### Show all items for a user
+### Nested Items Index Route
+
+This route should show all items for one individual user.
 
 ```txt
 GET /users/:user_id/items
-```
 
-Example Response:
-
-```json
+Response Body
+-------
 [
   {
     "id": 1,
@@ -56,15 +56,15 @@ Example Response:
 ]
 ```
 
-### Show one item matching the ID
+### Nested Item Show Route
+
+This route should show one item matching the `:id` from the URL.
 
 ```txt
 GET /users/:user_id/items/:id
-```
 
-Example Response:
-
-```json
+Response Body
+-------
 {
   "id": 1,
   "name": "Non-stick pan",
@@ -74,25 +74,27 @@ Example Response:
 }
 ```
 
-### Create a new item that belongs to a user
+### Nested Item Create Route
+
+This route should create a new item that belongs to a user.
 
 ```txt
 POST /users/:user_id/items
-```
 
-Example Request Body:
+Headers:
+-------
+Content-Type: application/json
 
-```json
+Request Body:
+-------
 {
   "name": "Garden gnomes",
   "description": "No refunds",
   "price": 23
 }
-```
 
-Example Response:
-
-```json
+Response Body:
+-------
 {
   "id": 2,
   "name": "Garden gnomes",
