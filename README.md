@@ -36,7 +36,7 @@ conditional code to ensure that only one `render` executes. A second way to
 avoid the error is to include an explicit `return`, eg: `return render json:
 ...` to keep any later `render` statements from executing.
 
-[double render error]((https://api.rubyonrails.org/classes/AbstractController/DoubleRenderError.html))
+[double render error]: https://api.rubyonrails.org/classes/AbstractController/DoubleRenderError.html
 
 ### Nested Items Index Route
 
