@@ -26,8 +26,17 @@ can also run `learn test` to run the tests.
 
 ## Instructions
 
-Handle the following requests and return the appropriate JSON data in the
-response.
+You will need to handle the requests listed below and return the appropriate
+JSON data in the response.
+
+**Note:** watch out for [Rails' `DoubleRenderError`][double render error] as you
+work. The error is fairly straightforward: Rails only allows `render` to be
+called once in an action. We have seen one way to avoid this error: by using
+conditional code to ensure that only one `render` executes. A second way to
+avoid the error is to include an explicit `return`, eg: `return render json:
+...` to keep any later `render` statements from executing.
+
+[double render error]((https://api.rubyonrails.org/classes/AbstractController/DoubleRenderError.html))
 
 ### Nested Items Index Route
 
