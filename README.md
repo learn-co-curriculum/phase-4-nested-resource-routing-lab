@@ -16,9 +16,9 @@ User -< Item
 
 Get the lab set up by running:
 
-```sh
-bundle install
-rails db:migrate db:seed
+```console
+$ bundle install
+$ rails db:migrate db:seed
 ```
 
 There is seed data in place so you can test your solution out in Postman. You
@@ -33,8 +33,7 @@ JSON data in the response.
 work. The error is fairly straightforward: Rails only allows `render` to be
 called once in an action. We have seen one way to avoid this error: by using
 conditional code to ensure that only one `render` executes. A second way to
-avoid the error is to include an explicit `return`, eg: `return render json:
-...` to keep any later `render` statements from executing.
+avoid the error is to include an explicit `return`, eg: `return render json: ...` to keep any later `render` statements from executing.
 
 [double render error]: https://api.rubyonrails.org/classes/AbstractController/DoubleRenderError.html
 
